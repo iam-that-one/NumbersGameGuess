@@ -19,13 +19,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var  lbl1 : TextView
     lateinit var clear : Button
     var message = ""
-    lateinit var students : ArrayList<String>
+    lateinit var tarace : ArrayList<String>
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         txt = findViewById(R.id.editTextTextPersonName3)
-        students = ArrayList()
+        tarace = ArrayList()
         add = findViewById(R.id.button2)
         lbl1 = findViewById(R.id.textView)
         clear = findViewById(R.id.button1)
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
       //  lbl = findViewById(R.id.textView6)
 
         val myRV = findViewById<RecyclerView>(R.id.rvMain)
-        myRV.adapter = RecycleViewAddapter(students)
+        myRV.adapter = RecycleViewAddapter(tarace)
         myRV.layoutManager = LinearLayoutManager(this)
         var ans = ""
         var rand = 0
@@ -42,9 +42,9 @@ class MainActivity : AppCompatActivity() {
         clear.setOnClickListener{
             lbl1.text = "Guess the correct number [***]"
           //  students =  mutableListOf("")
-            students.add("----------------------------------------------------")
+            tarace.add("----------------------------------------------------")
             clear.alpha = 0F
-            students.clear()
+            tarace.clear()
             myRV.adapter?.notifyDataSetChanged()
         }
         add.setOnClickListener {
@@ -52,19 +52,19 @@ class MainActivity : AppCompatActivity() {
              rand = Random.nextInt(101)
             if(ans == rand.toString()){
                 lbl1.text = "Guess the correct number [Unlocked] [${ans}]"
-                students.add("Your guss is ${ans}, You got it!! 😊")
+                tarace.add("Your guss is ${ans}, You got it!! 😊")
 
                 clear.alpha = 1F
 
             }else{
 
-                students.add("Sorry!! Wrong guess 😐")
+                tarace.add("Sorry!! Wrong guess 😐")
 
             }
             myRV.adapter?.notifyDataSetChanged()
             txt.text.clear()
 
         }
-        println(students)
+        println(tarace)
     }
 }
