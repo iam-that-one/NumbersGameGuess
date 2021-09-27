@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
         add.setOnClickListener {
              ans = txt.text.toString()
-             rand = Random.nextInt(101)
+             rand = Random.nextInt(1)
             if(ans == rand.toString()){
                 lbl1.text = "Guess the correct number [Unlocked] [${ans}]"
                 tarace.add("Your guss is ${ans}, You got it!! 😊")
